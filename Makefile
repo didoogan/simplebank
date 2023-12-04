@@ -14,6 +14,9 @@ dropdb:
 	docker exec -it my_postgres dropdb --username=postgres simple_bank
 
 sqlc:
-	rm -rf db/sqlc && sqlc generate
+	sqlc generate
 
-.PHONY: postgres createdb dropdb migrateup migratedown
+test:
+	go test -v -count=1  --cover ./...
+
+.PHONY: postgres createdb dropdb migrateup migratedown test
