@@ -5,10 +5,10 @@ createdb:
 	docker exec -it my_postgres createdb --username=postgres --owner=postgres simple_bank
 
 migrateup:
-	migrate -path db/migration -database "postgresql://postgres:123@localhost:5432/simple_bank?sslmode=disable" -verbose up
+	migrate -path db/migration -database "postgresql://postgres:123@127.0.0.1:5432/simple_bank?sslmode=disable" -verbose up
 
 migratedown:
-	migrate -path db/migration -database "postgresql://postgres:123@localhost:5432/simple_bank?sslmode=disable" -verbose down
+	migrate -path db/migration -database "postgresql://postgres:123@127.0.0.1:5432/simple_bank?sslmode=disable" -verbose down
 
 dropdb:
 	docker exec -it my_postgres dropdb --username=postgres simple_bank
